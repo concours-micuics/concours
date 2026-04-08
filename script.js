@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTbolF2BWNfe_rm9gNfMsqDDHylWoHsdriZYuwprGqvKFvbNyX7knEqnlniRVcRGEKHeABSoV7h2QS1/pub?gid=0&single=true&output=csv';
-
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/1X0JnYmCThtz6sJab5gBTJFie3LHi4iN8EnxgURwHDng/edit?usp=sharing' ;
     const remainingCountSpan = document.querySelector('#remaining-count span');
     const podiumContainer = document.getElementById('podium');
     const leaderboardList = document.getElementById('leaderboard-list');
 
     // --- Références modifiables pour les lots du podium ---
     // Modifiez ces valeurs ici (facilement remplaçables)
-    const podiumReferences = ['Télé 50 pouces', 'Vidéo Projecteur PHI-NEOPIX 100 PHILIPS', 'Appareil à raclette HRG8P1200-25 CARREFOUR HOME'];
+    const podiumReferences = ['Télé 50 pouces', 'Air Fryer', ''];
 
     // --- POPUP: affiché à chaque ouverture ---
     const popupModal = document.getElementById('popupModal');
