@@ -72,21 +72,28 @@ document.addEventListener('DOMContentLoaded', () => {
             const remainingValueRow = rows[3].split(',');
             const d4Content = remainingValueRow[3] ? remainingValueRow[3].trim().replace(/"/g, '') : ''; // Nettoie le contenu
 
-            // On vérifie si le contenu est un nombre
-            if (!isNaN(parseInt(d4Content))) {
-                // Si c'est un nombre, on lance l'animation
-                const remainingCount = parseInt(d4Content);
+            const remainingCount = parseInt(d4Content);
+
+            // Afficher le compteur
+            if (!isNaN(remainingCount)) {
                 animateCountUp(remainingCountSpan, remainingCount);
+                // Afficher "PLUS DE MICUICS" uniquement si le stock est épuisé
+                if (remainingCount === 0) {
+                    warningEl.classList.remove('hidden');
+                } else {
+                    warningEl.classList.add('hidden');
+                }
             } else {
-                // Sinon, on affiche directement le texte
                 remainingCountSpan.textContent = d4Content;
+                warningEl.classList.add('hidden');
             }
             
-            // Traitement des participants
-            const participants = rows.slice(1).map(row => {
-                const [name, scoreStr] = row.split(',');
-                if (name && !isNaN(parseInt(scoreStr))) {
-                    return { name: name.trim(), score: parseInt(scoreStr.trim()) };
+             const participants = rows.slice(1).map(row => {
+                const cols = row.split(',');
+                const name = cols[0] ? cols[0].trim().replace(/"/g, '') : '';
+                const scoreStr = cols[1] ? cols[1].trim().replace(/"/g, '') : '';
+                if (name && !isNaN(parseInt(scoreStr)) && parseInt(scoreStr) > 0) {
+                    return { name, score: parseInt(scoreStr) };
                 }
                 return null;
             }).filter(p => p !== null);
@@ -112,25 +119,42 @@ document.addEventListener('DOMContentLoaded', () => {
             { class: 'bronze', image: 'c.png' }
         ];
 
-        topThree.forEach((participant, index) => {
+        // Toujours créer 3 places, même s'il n'y a pas encore assez de participants
+        for (let index = 0; index < 3; index++) {
+            const participant = participants[index] || null;
             const placeDiv = document.createElement('div');
             placeDiv.className = `podium-place ${medalInfo[index].class}`;
             placeDiv.style.animationDelay = `${index * 0.2}s`;
-            
-            // Ajout du numéro de position (div.podium-rank)
-            placeDiv.innerHTML = `
-                <div class="podium-rank">${index + 1}</div>
-                <div class="img-wrapper">
-                    <img src="${medalInfo[index].image}" alt="Lot pour la ${index + 1}ère place">
-                    <button class="info-icon" aria-label="Informations sur le produit" aria-expanded="false">i</button>
-                    <div class="info-tooltip">${podiumReferences[index] || ('référence' + (index + 1))}</div>
-                </div>
-                <h3>${participant.name}</h3>
-                <div class="score">${participant.score}</div>
-            `;
+
+            if (participant) {
+                placeDiv.innerHTML = `
+                    <div class="podium-rank">${index + 1}</div>
+                    <div class="img-wrapper">
+                        <img src="${medalInfo[index].image}" alt="Lot pour la ${index + 1}${index === 0 ? 'ère' : 'ème'} place">
+                        <button class="info-icon" aria-label="Informations sur le produit" aria-expanded="false">i</button>
+                        <div class="info-tooltip">${podiumReferences[index] || ('référence ' + (index + 1))}</div>
+                    </div>
+                    <h3>${participant.name}</h3>
+                    <div class="score">${participant.score}</div>
+                `;
+            } else {
+                // Place vide : afficher le lot et un emplacement réservé
+                placeDiv.innerHTML = `
+                    <div class="podium-rank">${index + 1}</div>
+                    <div class="img-wrapper">
+                        <img src="${medalInfo[index].image}" alt="Lot pour la ${index + 1}${index === 0 ? 'ère' : 'ème'} place">
+                        <button class="info-icon" aria-label="Informations sur le produit" aria-expanded="false">i</button>
+                        <div class="info-tooltip">${podiumReferences[index] || ('référence ' + (index + 1))}</div>
+                    </div>
+                    <h3 class="placeholder-name">En attente...</h3>
+                    <div class="score placeholder-score">—</div>
+                `;
+            }
+
             podiumContainer.appendChild(placeDiv);
-        });
+        }
     }
+
 
     function buildList(restOfParticipants) {
         restOfParticipants.forEach((participant, index) => {

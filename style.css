@@ -737,4 +737,7 @@ header h1 {
 }
 
 
-
+/* Hidden utility */
+.hidden { display: none !important; }
+.placeholder-name { opacity: 0.45; font-style: italic; }
+.placeholder-score { opacity: 0.35; font-size: 1.5em !important; }
