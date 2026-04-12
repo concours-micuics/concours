@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const remainingCountSpan = document.querySelector('#remaining-count span');
     const podiumContainer = document.getElementById('podium');
     const leaderboardList = document.getElementById('leaderboard-list');
+    const warningEl = document.querySelector('.warning');
 
     // --- Références modifiables pour les lots du podium ---
     // Modifiez ces valeurs ici (facilement remplaçables)
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             podiumContainer.innerHTML = '';
             leaderboardList.innerHTML = '';
 
-            buildPodium(participants.slice(0, 3));
+            buildPodium(participants);
             buildList(participants.slice(3));
 
         } catch (error) {
@@ -120,8 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
 
         // Toujours créer 3 places, même s'il n'y a pas encore assez de participants
+        function buildPodium(topThree) {
         for (let index = 0; index < 3; index++) {
-            const participant = participants[index] || null;
+            const participant = topThree[index] || null;
             const placeDiv = document.createElement('div');
             placeDiv.className = `podium-place ${medalInfo[index].class}`;
             placeDiv.style.animationDelay = `${index * 0.2}s`;
