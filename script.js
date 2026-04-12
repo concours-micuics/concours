@@ -121,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
 
         // Toujours créer 3 places, même s'il n'y a pas encore assez de participants
-        function buildPodium(topThree) {
         for (let index = 0; index < 3; index++) {
             const participant = topThree[index] || null;
             const placeDiv = document.createElement('div');
