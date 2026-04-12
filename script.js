@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Références modifiables pour les lots du podium ---
     // Modifiez ces valeurs ici (facilement remplaçables)
-    const podiumReferences = ['Projecteur NeoPix 140 HD', 'Air Fryer MEDEK RA610DV 6L', ''];
+    const podiumReferences = ['Projecteur NeoPix 140 HD', 'Air Fryer MEDEK RA610DV 6L', '1h avec PB🥵'];
 
     // --- POPUP: affiché à chaque ouverture ---
     const popupModal = document.getElementById('popupModal');
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const medalInfo = [
             { class: 'gold', image: 'np.png' },
             { class: 'silver', image: 'af.png' },
-            { class: 'bronze', image: 'c.png' }
+            { class: 'bronze', image: 'PB.png' }
         ];
 
         // Toujours créer 3 places, même s'il n'y a pas encore assez de participants
