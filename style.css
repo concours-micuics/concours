@@ -298,24 +298,25 @@ header h1 {
 
 #remaining-count {
     font-size: clamp(0.9em, 3vw, 1.1em);
-    background: linear-gradient(135deg, rgba(13, 92, 47, 0.2), rgba(232, 213, 183, 0.1));
-    border: 2px solid var(--christmas-light);
+    background: linear-gradient(135deg, rgba(100, 0, 150, 0.3), rgba(255, 100, 0, 0.15));    border: 2px solid var(--christmas-light);
     padding: 12px 25px;
     border-radius: 50px;
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(232, 213, 183, 0.15);
     transition: all 0.3s ease;
+    color: #ffffff;
+    font-weight: 600;
 }
 
 #remaining-count:hover {
-    box-shadow: 0 8px 32px rgba(232, 213, 183, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 100, 0, 0.2);
     transform: translateY(-2px);
 }
 
 #remaining-count span {
     font-weight: 700;
     font-size: 1.2em;
-    color: var(--christmas-gold);
+    color: #ffcc00;
 }
 
 .command-button {
