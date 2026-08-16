@@ -6,14 +6,20 @@
     --bg-gradient-start: #0d0010;
     --bg-gradient-end: #1a0020;
     --gold: #ff8c00;
+    --text-primary: #ffffff;
+    --text-secondary: #f5e6d0;
     --christmas-green: #ff6600;
-    --christmas-light: #ffaa33;
-    --christmas-gold: #ff6600;
+    --christmas-light: #ffcc44;
+    --christmas-gold: #ffcc44;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, #2d0040 40%, var(--bg-gradient-end) 100%);    background-attachment: fixed;
+    background:
+        radial-gradient(ellipse at 80% 10%, rgba(255, 100, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 10% 90%, rgba(150, 0, 200, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(80, 0, 120, 0.3) 0%, transparent 70%),
+        linear-gradient(135deg, #0d0010 0%, #2d0040 40%, #1a0020 100%);
     color: var(--text-primary);
     margin: 0;
     padding: 15px;
