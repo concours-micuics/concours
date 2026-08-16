@@ -3,24 +3,17 @@
 
 /* Variables de couleur pour un thème festif de Noël */
 :root {
-    --bg-gradient-start: #0a1128;
-    --bg-gradient-end: #162a4a;
-    --text-primary: #ffffff;
-    --text-secondary: #e0e8f0;
-    --card-bg: rgba(255, 255, 255, 0.08);
-    --border-color: rgba(255, 255, 255, 0.15);
-    --gold: #ffc15d;
-    --silver: #b0c4de;
-    --bronze: #a79968;
-    --christmas-green: #ffffff;
-    --christmas-light: #e8f4f8;
-    --christmas-gold: #e8d5b7;
+    --bg-gradient-start: #0d0010;
+    --bg-gradient-end: #1a0020;
+    --gold: #ff8c00;
+    --christmas-green: #ff6600;
+    --christmas-light: #ffaa33;
+    --christmas-gold: #ff6600;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, #1d3a5c 40%, var(--bg-gradient-end) 100%);
-    background-attachment: fixed;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, #2d0040 40%, var(--bg-gradient-end) 100%);    background-attachment: fixed;
     color: var(--text-primary);
     margin: 0;
     padding: 15px;
@@ -136,13 +129,13 @@ body {
 /* Style Warning */
 .warning {
     background: linear-gradient(135deg, rgba(255, 100, 100, 0.15), rgba(255, 50, 50, 0.15));
-    border: 2px solid #ff6464;
+    border: 2px solid #ff8c00;
     border-radius: 12px;
     padding: 20px;
-    color: #ff9999;
+    color: #ffaa33;
     font-size: 1.3em;
     font-weight: 600;
-    text-shadow: 0 0 10px rgba(255, 100, 100, 0.6);
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
     animation: warningPulse 2s ease-in-out infinite;
 }
 
@@ -741,3 +734,4 @@ header h1 {
 .hidden { display: none !important; }
 .placeholder-name { opacity: 0.45; font-style: italic; }
 .placeholder-score { opacity: 0.35; font-size: 1.5em !important; }
+.snowflake::before { content: '🦇'; font-style: normal; }
