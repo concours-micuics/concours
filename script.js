@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQnwFEo93Y0lBC--ZU226nj4bzTsxCAGJzxGxYr0RWJQEP5EnB8NXR75NIWUlnzLykUxu9NuFyIoUV4/pub?output=csv' ;
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7f0qTweqCjNo01MAhi35t-1BiTPEV5AQjUADuEClcWftdRqLD8ml3L-kJj16Rkoh7-8MyKN08Th2d/pub?gid=1714095084&single=true&output=csv' ;
     const remainingCountSpan = document.querySelector('#remaining-count span');
     const podiumContainer = document.getElementById('podium');
     const leaderboardList = document.getElementById('leaderboard-list');
